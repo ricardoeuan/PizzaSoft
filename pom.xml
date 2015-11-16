@@ -9,22 +9,62 @@
     <name>sottovoce</name>
   
     <properties>
+        <!-- Generic build and compile Properties -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.7</maven.compiler.source>
+        <maven.compiler.target>1.7</maven.compiler.target>
+        <javaee-api.version>7.0</javaee-api.version>       
+        <springframework.version>4.2.1.RELEASE</springframework.version>                  
+        <json.version>20150729</json.version>        
+        <mysql-connector-java.version>5.0.8</mysql-connector-java.version>         
+        <jackson.version>2.6.3</jackson.version>       
     </properties>
     
     <dependencies>
+        <!-- Java EE -->
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-api</artifactId>
-            <version>7.0</version>
+            <version>${javaee-api.version}</version>
             <scope>provided</scope>
         </dependency>
+        
+        <!-- Spring Core/Transactions-->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>4.2.1.RELEASE</version>
+            <version>${springframework.version}</version>
+        </dependency>
+       <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${springframework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${springframework.version}</version>
+        </dependency>
+        
+        <!-- JSON encode/decode -->
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>${json.version}</version>
+        </dependency>
+        
+        <!-- MySQL Driver -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql-connector-java.version}</version>
+        </dependency>
+        
+        <!-- Jackson -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
         </dependency>
     </dependencies>
 
