@@ -96,27 +96,27 @@ public class BeverageDAOImpl implements BeverageDAO {
     }
 
     @Override
-    public void saveBeverage(Beverage beverage) {
+    public void save(Beverage beverage) {
         String sql = "INSERT INTO Beverages (name, description, alcohol, cost, measure)"
                 + "VALUES (?, ?, ?, ?)";
         jdbcTemplate.update(sql, beverage.getName(), beverage.getDescription(), beverage.getAlcohol(), beverage.getCost(), beverage.getMeasure());
     }
 
     @Override
-    public void updateBeverage(Beverage beverage) {
+    public void update(Beverage beverage) {
         String sql = "UPDATE Beverages SET name=?, description=?, alcohol=?, cost=?, measure=? "
                 + "WHERE idBeverages=?";
         jdbcTemplate.update(sql, beverage.getName(), beverage.getDescription(), beverage.getAlcohol(), beverage.getCost(), beverage.getMeasure(), beverage.getIdBeverages());
     }
 
     @Override
-    public void deleteBeverageById(int id) {
+    public void deleteById(int id) {
        String sql = "DELETE FROM Beverages where idBeverages=?";
        jdbcTemplate.update(sql, id);
     }
 
     @Override
-    public List<Beverage> findAllBeverages() {
+    public List<Beverage> findAll() {
         String sql = "SELECT * FROM Beverages";
         List<Beverage> listBeverage = jdbcTemplate.query(sql, new RowMapper<Beverage>(){
             
@@ -135,16 +135,16 @@ public class BeverageDAOImpl implements BeverageDAO {
             }           
         });
         return listBeverage;
-    }    
-
-    @Override
-    public boolean isBeverageExist(Beverage beverage) {
-        return findByName(beverage.getName())!=null;
     }
-        
+    
     @Override
-    public void deleteAllBeverages() {
-        String sql = "DELETE * FROM Beverages";
+    public void deleteAll() {
+       String sql = "DELETE * FROM Beverages";
        jdbcTemplate.update(sql);
     }
+
+    @Override
+    public boolean doesExist(Beverage beverage) {
+        return findByName(beverage.getName())!=null;
+    }            
 }

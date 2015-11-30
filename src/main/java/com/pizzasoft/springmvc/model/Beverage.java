@@ -38,6 +38,30 @@ public class Beverage implements Serializable {
     public static final long serialVersionUID = 1L;
     
     /**
+     * Default constructor
+     */
+    public Beverage() {
+        idBeverages = 0;
+    }
+
+    /**
+     * @param idBeverages     
+     * @param name     
+     * @param description     
+     * @param alcohol     
+     * @param cost     
+     * @param measure     
+     */
+    public Beverage(int idBeverages, String name, String description, boolean alcohol, float cost, String measure) {
+        this.idBeverages = idBeverages;
+        this.name = name;
+        this.description = description;
+        this.alcohol = alcohol;
+        this.cost = cost;
+        this.measure = measure;
+    }
+    
+    /**
      * 
      */
     private int idBeverages;
@@ -67,30 +91,7 @@ public class Beverage implements Serializable {
      */
     private String measure;
     
-    /**
-     * Default constructor
-     */
-    public Beverage() {
-        idBeverages = 0;
-    }
-
-    /**
-     * @param idBeverages     
-     * @param name     
-     * @param description     
-     * @param alcohol     
-     * @param cost     
-     * @param measure     
-     */
-    public Beverage(int idBeverages, String name, String description, boolean alcohol, float cost, String measure) {
-        this.idBeverages = idBeverages;
-        this.name = name;
-        this.description = description;
-        this.alcohol = alcohol;
-        this.cost = cost;
-        this.measure = measure;
-    }
-
+    
     /**
      * @return idBeverages
      */
@@ -142,7 +143,7 @@ public class Beverage implements Serializable {
         this.measure = measure;
     }
     
-     @Override
+    @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;

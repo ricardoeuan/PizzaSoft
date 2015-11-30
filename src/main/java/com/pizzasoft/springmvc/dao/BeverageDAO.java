@@ -28,30 +28,28 @@
 package com.pizzasoft.springmvc.dao;
 
 import java.util.List;
-
 import com.pizzasoft.springmvc.model.Beverage;
 
 /**
  *
  * @author ricardoeuan
  */
-
 public interface BeverageDAO {
     
     Beverage findById(int id);
     
     Beverage findByName(String name);
     
-    void saveBeverage(Beverage beverage);
+    void save(Beverage beverage);
     
-    void updateBeverage(Beverage beverage);
+    void update(Beverage beverage);
     
-    void deleteBeverageById(int id);
+    void deleteById(int id);
     
-    List<Beverage> findAllBeverages();
+    List<Beverage> findAll();
     
-    void deleteAllBeverages();
+    void deleteAll();
     
-    public boolean isBeverageExist(Beverage beverage);
+    public boolean doesExist(Beverage beverage);
     
 }
